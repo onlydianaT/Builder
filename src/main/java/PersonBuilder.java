@@ -24,6 +24,9 @@ public class PersonBuilder {
     }
 
     public PersonBuilder setAge(int age) {
+        if (age < 0 || age > 100) {
+            throw new IllegalArgumentException("Некорректный возраст");
+        }
         this.age = age;
         return this;
     }
@@ -46,13 +49,10 @@ public class PersonBuilder {
                     return new Person(name, surname);
                 }
             }
-        }
-        if (age < 0 || age > 100) {
-            System.out.println(new IllegalArgumentException("Некорректный возраст"));
-            return new Person(name, surname);
         } else {
             System.out.println(new IllegalStateException("Не задано одно из обязательных полей: Имя и/или фамилия"));
             return new Person(name, surname);
         }
+        return new Person(name, surname);
     }
 }

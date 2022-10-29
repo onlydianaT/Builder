@@ -30,9 +30,9 @@ public class Main {
 
         try {
             Person mom2 = new PersonBuilder()
-                    .setName("Tayz")
-                    .setSurname("cxcvg")
-                    .setAge(-100)
+                    .setName("Tanya")
+                    .setSurname("Lorec")
+                    .setAge(-10)
                     .setAddress("Сидней")
                     .build();
             System.out.println("У " + mom2);
