@@ -29,7 +29,7 @@ public class Person {
 
     public boolean hasAddress() {
         String t = (String) null;
-        if (hashCode(address) != hashCode(t)) {
+        if (Objects.hashCode(address) != Objects.hashCode(t)) {
             return true;
         }
         return false;
@@ -70,14 +70,10 @@ public class Person {
                     "name: " + name + "\n" +
                     "town: " + address + "\n";
         } else {
-            return "Person{ " + "\n "+
+            return "Person{ " + "\n " +
                     "surname: " + surname + "\n" +
                     "name: " + name + "\n";
         }
-    }
-
-    public int hashCode(Object value) {
-        return Objects.hashCode(value);
     }
 
     public PersonBuilder newChildBuilder() {

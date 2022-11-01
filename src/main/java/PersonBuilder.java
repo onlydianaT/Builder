@@ -38,9 +38,9 @@ public class PersonBuilder {
 
     public Person build() {
         Person person = new Person(this.name, this.surname, this.age, this.address);
-        int hashCodeNull = person.hashCode(t);
-        int hashCodeSurname = person.hashCode(person.getSurname());
-        int hashCodeName = person.hashCode(person.getName());
+        int hashCodeNull = Objects.hashCode(t);
+        int hashCodeSurname = Objects.hashCode(person.getSurname());
+        int hashCodeName = Objects.hashCode(person.getName());
         if (hashCodeNull != hashCodeSurname && hashCodeNull != hashCodeName) {
             if (person.hasAge()) {
                 if (age > 0 && age < 100) {
