@@ -8,7 +8,7 @@ public class PersonBuilder {
     String t = (String) null;
 
     public PersonBuilder setName(String name) {
-        if (Objects.hashCode(this.name) == Objects.hashCode(t)) {
+        if (this.name == null) {
             this.name = name;
             return this;
         }
@@ -16,7 +16,7 @@ public class PersonBuilder {
     }
 
     public PersonBuilder setSurname(String surname) {
-        if (Objects.hashCode(this.surname) == Objects.hashCode(t)) {
+        if (this.surname == null) {
             this.surname = surname;
             return this;
         }
@@ -38,10 +38,7 @@ public class PersonBuilder {
 
     public Person build() {
         Person person = new Person(this.name, this.surname, this.age, this.address);
-        int hashCodeNull = Objects.hashCode(t);
-        int hashCodeSurname = Objects.hashCode(person.getSurname());
-        int hashCodeName = Objects.hashCode(person.getName());
-        if (hashCodeNull != hashCodeSurname && hashCodeNull != hashCodeName) {
+        if (surname != null && name != null) {
             if (person.hasAge()) {
                 if (age > 0 && age < 100) {
                     return new Person(name, surname, age, address);
